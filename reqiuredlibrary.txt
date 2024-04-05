@@ -1,0 +1,10 @@
+AutoML:-
+streamlit
+pandas
+ydata_profiling
+streamlit_ydata_profiling
+pycart_regression
+
+Calculate_distance:-
+geopy.geocoders
+geopy.distance
