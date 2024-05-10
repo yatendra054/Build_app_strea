@@ -6,16 +6,16 @@ from streamlit_ydata_profiling import st_profile_report
 from pycaret.regression import setup, compare_models, save_model, pull
 
 with st.sidebar:
-    st.image("https://www.analyticsinsight.net/wp-content/uploads/2020/05/AutoML.jpg")
+    st.image("AutoML.png")
     st.title("Auto ML")
     choice = st.radio("# Navigation", ["Upload:bookmark_tabs:", "Profiling", "AutoMl", "Downloading:arrow_down:"])
     st.info("This application is used to design auto machine learning model by uploading data")
 
-if os.path.exists("data2.xlsv"):
-    if "data2.xlsv".endswith('.csv'):
-        df= pd.read_csv("data2.xlsv", index_col=None)
-    elif "data2.xlsv".endswith('.xlsv'):
-        df = pd.read_csv("data2.xlsv", index_col=None)
+if os.path.exists("dataset.xlsx"):
+    if "dataset.xlsv".endswith('.csv'):
+        df= pd.read_csv("dataset.xlsv", index_col=None)
+    elif "dataset.xlsx".endswith('.xlsx'):
+        df = pd.read_csv("dataset.xlsx", index_col=None)
 
 if choice == "Upload:bookmark_tabs:":
     st.title("Uploading Your Data for Auto Modelling!")
@@ -27,9 +27,9 @@ if choice == "Upload:bookmark_tabs:":
             df = pd.read_excel(file, index_col=None)
 
         if file.name.endswith('.csv'):
-            df.to_csv("data2.csv", index=None)
+            df.to_csv("dataset.csv", index=None)
         elif file.name.endswith('.xlsv'):
-            df.to_csv("data2.xlsv", index=None)
+            df.to_csv("dataset.xlsx", index=None)
         st.dataframe(df)
 
 if choice == "Profiling":
